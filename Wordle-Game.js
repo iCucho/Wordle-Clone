@@ -3,7 +3,7 @@ const ROUNDS = 6;
 const letters = document.querySelectorAll(".scoreboard-letter");
 const loadingDiv = document.querySelector(".info-bar");
 
-// I like to do an init function so I can use "await"
+
 async function init() {
   // the state for the app
   let currentRow = 0;
@@ -39,7 +39,7 @@ async function init() {
     }
 
     // check the API to see if it's a valid word
-    // skip this step if you're not checking for valid words
+   
     isLoading = true;
     setLoading(isLoading);
     const res = await fetch("https://words.dev-apis.com/validate-word", {
@@ -110,7 +110,7 @@ async function init() {
   }
 
   // let the user know that their guess wasn't a real word
-  // skip this if you're not doing guess validation
+
   function markInvalidWord() {
     for (let i = 0; i < ANSWER_LENGTH; i++) {
       letters[currentRow * ANSWER_LENGTH + i].classList.remove("invalid");
@@ -146,8 +146,7 @@ async function init() {
 }
 
 // a little function to check to see if a character is alphabet letter
-// this uses regex (the /[a-zA-Z]/ part) but don't worry about it
-// you can learn that later and don't need it too frequently
+// this uses regex (the /[a-zA-Z]/ part)
 function isLetter(letter) {
   return /^[a-zA-Z]$/.test(letter);
 }
